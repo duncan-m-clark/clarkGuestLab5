@@ -30,4 +30,9 @@ GameP game_init(void) {
             game->cells[y*3 + x] = ' '; //used to clear out and initalize the cells
         }
     }
+    return game;
+}
+
+void game_play(void) {
+
 }
