@@ -5,7 +5,7 @@ Dr. Guernsey
 10/27/2025
 Project: tictactoe
 */
-
+#include <stdlib.h>
 #include "game.h"
 
 typedef struct TicTacToeGame {   
@@ -13,7 +13,7 @@ typedef struct TicTacToeGame {
     int width;
     int height; 
     char cells[9]; 
-} TicTacToeGame. TicTacToeGamep*;
+} TicTacToeGame, *TicTacToeGameP;
 
 /// dummy functions to see what functions we need
 
@@ -27,7 +27,7 @@ GameP game_init(void) {
     game->height = 3;
     for(int y = 0; y < 3; y++){
         for(int x= 0; x < 3; x++){
-            game->cells[y*3 + x] = " "; //used to clear out and initalize the cells
+            game->cells[y*3 + x] = ' '; //used to clear out and initalize the cells
         }
     }
 }

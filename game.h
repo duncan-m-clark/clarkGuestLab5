@@ -14,4 +14,4 @@ typedef struct Game {
 
     ///@brief The value within each cell. ASCII X or O. Values are in row-major order. 
     char cells[];
-} Game, *Gamep;
+} Game, *GameP;
