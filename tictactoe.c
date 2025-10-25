@@ -12,15 +12,16 @@ typedef struct TicTacToeGame {
     int turn;
     int width;
     int height; 
-    char cells[9]; 
+    char cells[9]; //from our analysis, its an array indexed by row*3 + column
 } TicTacToeGame, *TicTacToeGameP;
 
-/// dummy functions to see what functions we need
+/// These are the functions we need to make. Function declarations
+GameP game_init(void);
+void game_enumerate_plays(void);
+void game_play(void);
 
-void game_enumerate_plays(void){
-}
 
-GameP game_init(void) {
+GameP game_init(void) { //game_init. Creates the game board and saves the state of the game through the turn int. 
     GameP game = (GameP) malloc(sizeof(TicTacToeGame));
     game->turn = 'X';
     game->width = 3;
@@ -31,6 +32,10 @@ GameP game_init(void) {
         }
     }
     return game;
+}
+
+
+void game_enumerate_plays(void){
 }
 
 void game_play(void) {
