@@ -21,4 +21,4 @@ typedef void (*Func)(int move_num, char* move_desc, void * user_data);
 /// These are the functions we need to make. Function declarations
 GameP game_init(void);
 void game_enumerate_plays(GameP game, Func print_play_func, void* user_data);
-void game_play(void);
+int game_play(GameP game, int input)

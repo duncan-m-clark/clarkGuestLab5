@@ -46,6 +46,6 @@ void game_enumerate_plays(GameP game, Func print_play_func, void* user_data){ //
     return; //done printing
 }
 
-void game_play(void) {
-
+int game_play(GameP game, int input) {
+    ///TODO: move validation, update game board, and check winner
 }
