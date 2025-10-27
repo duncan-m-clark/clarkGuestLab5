@@ -47,5 +47,19 @@ void game_enumerate_plays(GameP game, Func print_play_func, void* user_data){ //
 }
 
 int game_play(GameP game, int input) {
-    ///TODO: move validation, update game board, and check winner
+    ///TODO: move validation, update game board, and check winner.
+    if (input < 0 || input >= 9) {
+        return -1;
+    }
+    if (game->cells[input] != ' '){
+        return -1;
+    }
+    game->cells[input] = game->turn;
+    if (game->turn == 'X') {
+        game->turn = 'O';
+    }
+    else if (game->turn == 'O') {
+        game->turn = 'X';
+    }
+    return 0;
 }
