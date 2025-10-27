@@ -58,8 +58,62 @@ int game_play(GameP game, int input) {
     if (game->turn == 'X') {
         game->turn = 'O';
     }
-    else if (game->turn == 'O') {
+    else {
         game->turn = 'X';
     }
-    return 0;
+
+    //Check Horizontals
+    if (game->cells[0] == game->cells[1] &&
+        game->cells[1] == game->cells[2] &&
+        game->cells[0] != ' ') {
+            return game->cells[0];
+        }
+    if (game->cells[3] == game->cells[4] &&
+        game->cells[4] == game->cells[5] &&
+        game->cells[3] != ' ') {
+            return game->cells[3];
+        }
+    if (game->cells[6] == game->cells[7] &&
+        game->cells[7] == game->cells[8] &&
+        game->cells[6] != ' ') {
+            return game->cells[6];
+        }
+
+    //Check Verticals
+    if (game->cells[0] == game->cells[3] &&
+        game->cells[3] == game->cells[6] &&
+        game->cells[0] != ' ') {
+            return game->cells[0];
+        }
+    if (game->cells[1] == game->cells[4] &&
+        game->cells[4] == game->cells[7] &&
+        game->cells[1] != ' ') {
+            return game->cells[1];
+        }
+    if (game->cells[2] == game->cells[5] &&
+        game->cells[5] == game->cells[8] &&
+        game->cells[2] != ' ') {
+            return game->cells[2];
+        }
+
+    //Check Diagonals
+    if (game->cells[0] == game->cells[4] &&
+        game->cells[4] == game->cells[8] &&
+        game->cells[0] != ' ') {
+            return game->cells[0];
+        }
+    if (game->cells[2] == game->cells[4] &&
+        game->cells[4] == game->cells[6] &&
+        game->cells[2] != ' ') {
+            return game->cells[1];
+        }
+
+    //Check Tie
+    for (int i = 0; i < 9; i++) {
+        if (game->cells[i] == ' ') {
+            return 0;
+        }
+    }
+
+    return -2;
 }
